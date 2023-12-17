@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t vit/docker-fe1 -f Dockerfile.dev .
+
+script:
+  - docker run vit/docker-fe1 npm run test -- --coverage
